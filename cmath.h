@@ -4,11 +4,6 @@
 #include <math.h>
 
 /**
-*	Returns the sign of a given number.
-*/
-#define sign(x)			(x < 0 ? -1 : 1)
-
-/**
 *	Convert degrees to radians.
 */
 #define DEG_TO_RAD(x)	(x * M_PI / 180)
@@ -29,10 +24,6 @@ typedef const struct cNumber {
 /**
 *	Calculate and return the real part of a complex number.
 */
-double creal(struct cNumber c) {
-	return c.magn * cos(DEG_TO_RAD(c.angle));
-}
-
 double real(double magn, double angle) {
 	return magn * cos(DEG_TO_RAD(angle));
 }
@@ -40,10 +31,6 @@ double real(double magn, double angle) {
 /**
 *	Calculate and return the imaginary part of a complex number.
 */
-double cimag(struct cNumber c) {
-	return c.magn * sin(DEG_TO_RAD(c.angle));
-}
-
 double imag(double magn, double angle) {
 	return magn * sin(DEG_TO_RAD(angle));
 }
@@ -51,10 +38,6 @@ double imag(double magn, double angle) {
 /**
 *	Calculate and return the magnitude of a complex number.
 */
-double cmagn(struct cNumber c) {
-	return sqrt(c.real * c.real + c.imag * c.imag);
-}
-
 double magn(double real, double imag) {
 	return sqrt(real * real + imag * imag);
 }
@@ -62,10 +45,6 @@ double magn(double real, double imag) {
 /**
 *	Calculate and return the angle of a complex number.
 */
-double cangle(struct cNumber c) {
-	return RAD_TO_DEG(atan2(c.imag, c.real));
-}
-
 double angle(double real, double imag) {
 	return RAD_TO_DEG(atan2(imag, real));
 }
